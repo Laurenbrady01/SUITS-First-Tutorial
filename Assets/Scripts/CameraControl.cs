@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -58,6 +59,7 @@ public class CameraControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // Left click
         {
             // Add stuff here
+            Debug.Log("I pressed mouse 1");
         }
     }
 }
