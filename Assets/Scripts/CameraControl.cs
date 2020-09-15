@@ -60,6 +60,7 @@ public class CameraControl : MonoBehaviour
         {
             // Add stuff here
             UnityEngine.Debug.Log("I pressed mouse 1");
+
            
         }
     }
