@@ -59,7 +59,8 @@ public class CameraControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // Left click
         {
             // Add stuff here
-            Debug.Log("I pressed mouse 1");
+            UnityEngine.Debug.Log("I pressed mouse 1");
+           
         }
     }
 }
