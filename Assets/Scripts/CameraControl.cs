@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -60,6 +61,13 @@ public class CameraControl : MonoBehaviour
         {
             // Add stuff here
             UnityEngine.Debug.Log("I pressed mouse 1");
+
+            Ray testRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Physics.Raycast(testRay.origin, testRay.direction, out hit);
+            UnityEngine.Debug.DrawLine(testRay.origin, testRay.direction * 10, Color.red, 2);
+
+
 
            
         }
