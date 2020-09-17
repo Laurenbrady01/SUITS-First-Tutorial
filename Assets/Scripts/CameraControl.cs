@@ -70,8 +70,11 @@ public class CameraControl : MonoBehaviour
             if (didWeHitSomething)
             {
                 GameObject tempBall = GameObject.Instantiate(ballPrefab);
-                tempBall.transform.position = hit.point;
-                tempBall.transform.localRotation.SetFromToRotation(Vector3.up, hit.normal);
+                Collider ballCollider = tempBall.GetComponent<Collider>();
+
+                tempBall.transform.position = hit.point + (hit.normal * ballCollider.bounds.extents.y);
+                tempBall.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+
             }
             UnityEngine.Debug.DrawLine(testRay.origin, testRay.origin + testRay.direction * 10, Color.red, 2);
 
