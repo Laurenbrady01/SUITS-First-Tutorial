@@ -64,10 +64,18 @@ public class CameraControl : MonoBehaviour
 
             Ray testRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            Physics.Raycast(testRay.origin, testRay.direction, out hit);
-            UnityEngine.Debug.DrawLine(testRay.origin, testRay.direction * 10, Color.red, 2);
 
+            bool didWeHitSomething = Physics.Raycast(testRay.origin, testRay.direction, out hit);
 
+            if (didWeHitSomething)
+            {
+                GameObject tempBall = GameObject.Instantiate(ballPrefab);
+                tempBall.transform.position = hit.point;
+                tempBall.transform.localRotation.SetFromToRotation(Vector3.up, hit.normal);
+            }
+            UnityEngine.Debug.DrawLine(testRay.origin, testRay.origin + testRay.direction * 10, Color.red, 2);
+
+            
 
            
         }
